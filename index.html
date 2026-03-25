@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataLab Global Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">DataLab × World Monitor Inspired</p>
+        <h1>Analyze the world's data in one place</h1>
+        <p class="subtitle">
+          Live metrics from global institutions, country-level trend analysis, and regional
+          comparisons for policy, investment, and research decisions.
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Global snapshot</h2>
+          <button id="refreshGlobal" class="btn">Refresh data</button>
+        </div>
+        <div id="globalStats" class="kpi-grid"></div>
+      </section>
+
+      <section class="panel two-col">
+        <div>
+          <h2>Country analysis</h2>
+          <div class="controls">
+            <label>
+              Country
+              <select id="countrySelect"></select>
+            </label>
+            <label>
+              Indicator
+              <select id="indicatorSelect"></select>
+            </label>
+            <button id="analyzeBtn" class="btn">Analyze trend</button>
+          </div>
+          <div id="analysisSummary" class="summary"></div>
+        </div>
+        <div>
+          <canvas id="trendChart" height="280"></canvas>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Country comparison</h2>
+        <div class="controls compare">
+          <label>
+            Country A
+            <select id="countryA"></select>
+          </label>
+          <label>
+            Country B
+            <select id="countryB"></select>
+          </label>
+          <button id="compareBtn" class="btn">Compare latest values</button>
+        </div>
+        <div id="compareResult" class="compare-result"></div>
+      </section>
+
+      <section class="panel">
+        <h2>How DataLab analyzes world data</h2>
+        <ul class="method">
+          <li>Ingests global indicators from the World Bank API.</li>
+          <li>Normalizes values by country and year to create consistent time-series.</li>
+          <li>Computes trend slope and annualized change to detect acceleration or stagnation.</li>
+          <li>Highlights actionable insights for economies, development, and quality-of-life outcomes.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Data sources: <a href="https://data.worldbank.org/" target="_blank" rel="noreferrer">World Bank Open Data</a>
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
